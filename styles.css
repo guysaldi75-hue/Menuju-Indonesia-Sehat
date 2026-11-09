@@ -1,0 +1,48 @@
+body {
+  background: lightblue;
+}
+
+h1 {
+  color: green;
+  font-size: 50px;
+}
+
+.detail-box {
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  margin-top: 18px;
+  border: 1px solid #e1eee5;
+}
+
+.detail-box h3 {
+  font-size: 14px;
+  color: #16834b;
+  margin: 18px 0 8px;
+}
+
+.detail-box h3:first-child {
+  margin-top: 0;
+}
+
+.detail-box p,
+.detail-box li {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #526b5a;
+}
+
+.detail-box ul {
+  padding-left: 20px;
+}
+
+.fact {
+  background: #eaf8ef;
+  border-radius: 14px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.fact h3 {
+  margin-top: 0;
+}

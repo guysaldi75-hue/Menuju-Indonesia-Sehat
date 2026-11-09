@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menuju Indonesia Sehat</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f3f9f5;
+  color: #173c2b;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* BERANDA */
+
+#home {
+  background:
+    linear-gradient(90deg, #001b10d9, #001b1050),
+    url("https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1600");
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  padding: 28px;
+}
+
+.hero-content {
+  color: white;
+  max-width: 600px;
+}
+
+.tag {
+  color: #80efaa;
+  letter-spacing: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(30px, 8vw, 55px);
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+  color: #69e69a;
+}
+
+.hero-content p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #eee;
+}
+
+.main-btn {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 15px 28px;
+  border: 0;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #26c875, #087744);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 5px 25px #20c87555;
+  cursor: pointer;
+}
+
+/* HALAMAN TIPS */
+
+#menu {
+  flex-direction: column;
+  padding: 25px 20px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.logo {
+  color: #16834b;
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.small-tag {
+  color: #16834b;
+  font-size: 10px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.menu-title {
+  font-size: 25px;
+  margin: 8px 0;
+}
+
+.menu-desc {
+  color: #718477;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e2eee5;
+  border-radius: 18px;
+  padding: 16px 13px;
+  min-height: 175px;
+  box-shadow: 0 5px 18px #153b2410;
+}
+
+.card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: #e5f8eb;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 10px;
+  color: #718477;
+  line-height: 1.6;
+  min-height: 32px;
+}
+
+.learn {
+  margin-top: 10px;
+  border: 0;
+  background: transparent;
+  color: #16834b;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.bottom-note {
+  margin-top: auto;
+  padding-top: 15px;
+  text-align: center;
+  color: #789080;
+  font-size: 10px;
+}
+
+/* DETAIL */
+
+#detail {
+  flex-direction: column;
+  padding: 24px 22px;
+}
+
+.back {
+  border: 0;
+  background: #e2f4e8;
+  color: #16834b;
+  border-radius: 30px;
+  padding: 10px 16px;
+  font-family: inherit;
+  font-weight: 700;
+  align-self: flex-start;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.detail-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.detail-label {
+  font-size: 10px;
+  color: #16834b;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+#detail-title {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+#detail-text {
+  color: #526b5a;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.detail-box {
+  background: white;
+  border: 1px solid #e1eee5;
+  border-radius: 18px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.detail-box h3 {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+#detail-list {
+  padding-left: 18px;
+  color: #526b5a;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.source {
+  margin-top: 18px;
+  font-size: 11px;
+  color: #718477;
+}
+
+.source a {
+  display: inline-block;
+  color: #16834b;
+  font-weight: 700;
+  margin-top: 7px;
+  text-decoration: none;
+}
+
+@media (max-height: 650px) {
+  #menu {
+    padding: 13px 17px;
+  }
+  .topbar {
+    margin-bottom: 12px;
+  }
+  .menu-desc {
+    margin-bottom: 12px;
+  }
+  .card {
+    min-height: 145px;
+    padding: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BERANDA -->
+
+<section id="home" class="screen active">
+  <div class="hero-content">
+    <div class="tag">INDONESIA SEHAT 2026</div>
+
+    <h1>
+      MENUJU<br>
+      INDONESIA <span>SEHAT.</span>
+    </h1>
+
+    <p>
+      Keluarga sehat, generasi kuat,
+      masa depan Indonesia yang lebih baik.
+    </p>
+
+    <button class="main-btn" onclick="showScreen('menu')">
+      Mulai Sekarang →
+    </button>
+  </div>
+</section>
+
+<!-- MENU TIPS -->
+
+<section id="menu" class="screen">
+
+  <div class="topbar">
+    <div class="logo">✚ SEHAT.ID</div>
+    <div class="small-tag">HEALTH CENTER</div>
+  </div>
+
+  <div class="small-tag">HEALTH EDUCATION</div>
+  <h2 class="menu-title">Jaga Kesehatanmu!</h2>
+
+  <p class="menu-desc">
+    Pilih topik untuk mempelajari kebiasaan hidup sehat.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">🥗</div>
+      <h3>Makanan Bergizi</h3>
+      <p>Kenali makanan dengan gizi seimbang.</p>
+      <button class="learn" onclick="openDetail('food')">
+        Pelajari →
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">💧</div>
+      <h3>Air Putih</h3>
+      <p>Kenapa tubuh membutuhkan air?</p>
+      <button class="learn" onclick="openDetail('water')">
+        Pelajari →
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏃</div>
+      <h3>Olahraga</h3>
+      <p>Manfaat aktif bergerak setiap hari.</p>
+      <button class="learn" onclick="openDetail('sport')">
+        Pelajari →
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">😴</div>
+      <h3>Istirahat</h3>
+      <p>Pentingnya tidur untuk kesehatan.</p>
+      <button class="learn" onclick="openDetail('sleep')">
+        Pelajari →
+      </button>
+    </div>
+
+  </div>
+
+  <div class="bottom-note">
+    SEHAT BERSAMA, INDONESIA BERJAYA
+  </div>
+</section>
+
+<!-- HALAMAN DETAIL -->
+
+<section id="detail" class="screen">
+
+  <button class="back" onclick="showScreen('menu')">
+    ← Kembali
+  </button>
+
+  <div class="detail-icon" id="detail-icon">🥗</div>
+
+  <div class="detail-label">HEALTH KNOWLEDGE</div>
+
+  <h2 id="detail-title">Makanan Bergizi</h2>
+
+  <p id="detail-text"></p>
+
+  <div class="detail-box">
+    <h3>💡 Tips yang bisa dilakukan</h3>
+    <ul id="detail-list"></ul>
+  </div>
+
+  <div class="source">
+    Referensi informasi:
+    <br>
+    <a id="source-link" href="#" target="_blank" rel="noopener">
+      Baca sumber resmi →
+    </a>
+  </div>
+
+</section>
+
+<script>
+const data = {
+  food: {
+    icon: "🥗",
+    title: "Makanan Bergizi",
+    text: "Tubuh membutuhkan berbagai zat gizi untuk tumbuh, beraktivitas, dan menjaga kesehatan. Kementerian Kesehatan menganjurkan pola makan beragam dengan makanan pokok, lauk berprotein, sayur, dan buah.",
+    tips: [
+      "Makan makanan yang beragam.",
+      "Perbanyak sayur dan buah.",
+      "Pilih lauk yang mengandung protein.",
+      "Batasi makanan terlalu manis, asin, dan berlemak."
+    ],
+    source: "https://ayosehat.kemkes.go.id/isi-piringku-kebutuhan-gizi-harian-seimbang"
+  },
+
+  water: {
+    icon: "💧",
+    title: "Pentingnya Air Putih",
+    text: "Air membantu tubuh menjalankan berbagai fungsi, termasuk mengatur suhu dan menjaga keseimbangan cairan. Kebutuhan cairan setiap orang dapat berbeda tergantung usia, aktivitas, dan kondisi tubuh.",
+    tips: [
+      "Minum air secara teratur.",
+      "Bawa botol minum saat beraktivitas.",
+      "Perhatikan rasa haus dan kondisi tubuh.",
+      "Pilih air putih dibanding minuman tinggi gula."
+    ],
+    source: "https://ayosehat.kemkes.go.id/isi-piringku-kebutuhan-gizi-harian-seimbang"
+  },
+
+  sport: {
+    icon: "🏃",
+    title: "Rutin Berolahraga",
+    text: "Aktivitas fisik membantu menjaga kebugaran, kekuatan otot, dan kesehatan jantung. Aktivitas tidak harus selalu olahraga berat. Berjalan kaki, bersepeda, dan bermain aktif juga termasuk aktivitas fisik.",
+    tips: [
+      "Biasakan berjalan kaki.",
+      "Lakukan peregangan saat lama duduk.",
+      "Pilih olahraga yang kamu sukai.",
+      "Lakukan aktivitas secara rutin sesuai kemampuan."
+    ],
+    source: "https://upk.kemkes.go.id/new/6-manfaat-aktivitas-fisik"
+  },
+
+  sleep: {
+    icon: "😴",
+    title: "Tidur yang Cukup",
+    text: "Istirahat dan tidur berkualitas merupakan bagian penting dari pola hidup sehat. Tidur membantu tubuh memulihkan energi dan mendukung fungsi tubuh sehari-hari.",
+    tips: [
+      "Usahakan tidur dan bangun teratur.",
+      "Kurangi penggunaan HP menjelang tidur.",
+      "Buat suasana kamar nyaman.",
+      "Sesuaikan waktu tidur dengan kebutuhan usiamu."
+    ],
+    source: "https://keslan.kemkes.go.id/view_artikel/4336/masih-muda-kok-sudah-harus-cek-kesehatan"
+  }
+};
+
+function showScreen(id) {
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
+  });
+
+  document.getElementById(id).classList.add("active");
+}
+
+function openDetail(topic) {
+  const item = data[topic];
+
+  document.getElementById("detail-icon").textContent = item.icon;
+  document.getElementById("detail-title").textContent = item.title;
+  document.getElementById("detail-text").textContent = item.text;
+  document.getElementById("source-link").href = item.source;
+
+  const list = document.getElementById("detail-list");
+  list.innerHTML = "";
+
+  item.tips.forEach(tip => {
+    const li = document.createElement("li");
+    li.textContent = tip;
+    list.appendChild(li);
+  });
+
+  showScreen("detail");
+}
+</script>
+
+</body>
+</html>
